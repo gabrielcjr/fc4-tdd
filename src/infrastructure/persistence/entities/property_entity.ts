@@ -18,6 +18,8 @@ export class PropertyEntity {
   @Column({ name: "base_price_per_night", type: "decimal" })
   basePricePerNight!: number;
 
-  @OneToMany(() => BookingEntity, (booking) => booking.property)
-  bookings!: BookingEntity[];
+  @OneToMany(() => BookingEntity, (booking) => booking.property, {
+    nullable: true,
+  })
+  bookings?: BookingEntity[];
 }
